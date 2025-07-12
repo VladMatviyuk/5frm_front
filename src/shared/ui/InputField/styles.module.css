@@ -1,0 +1,15 @@
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputText {
+  font-size: 1rem;
+  color: #4b5563;
+  background-color: white;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline-color: #8ee4b1;
+}

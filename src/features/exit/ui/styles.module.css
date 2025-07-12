@@ -1,0 +1,5 @@
+.exit {
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+}
