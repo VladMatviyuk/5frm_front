@@ -1,6 +1,5 @@
 import { useActionState } from 'react';
 import styles from './styles.module.css';
-import { useNavigate } from 'react-router';
 import { Form, InputField } from '@/shared/ui';
 import { Button } from '@/shared/ui';
 import { login } from '@/entities/user';
@@ -12,8 +11,6 @@ type AuthState =
   | { error?: undefined; success?: undefined; message?: undefined };
 
 export const LoginPage = () => {
-  const navigate = useNavigate();
-
   const sendLogin = async (_: AuthState, formData: FormData) => {
     const username = formData.get('username') as string;
     const password = formData.get('password') as string;

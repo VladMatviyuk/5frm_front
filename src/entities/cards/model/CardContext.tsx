@@ -9,18 +9,21 @@ import type { Card, CardList } from './types';
 
 type CardContext = {
   cards: CardList;
-  currentCard: Card | undefined;
-  currentIndex: number;
+  currentCard?: Card;
+  currentIndex?: number;
   loadCards: (cards: CardList) => void;
   nextCard: () => void;
   prevCard: () => void;
-  setCurrentIndex: (index: number) => void;
+  setCurrentIndex: (index: number | undefined) => void;
+  close: () => void;
 };
 
 const CardContext = createContext<CardContext | undefined>(undefined);
 
 export const useCards = () => {
-  return useContext(CardContext);
+  const context = useContext(CardContext);
+  if (!context) throw new Error('useCards in not defined');
+  return context;
 };
 
 interface Props {
@@ -50,7 +53,7 @@ export const CardProvider: FC<Props> = ({ children }) => {
   };
 
   const currentCard =
-    (currentIndex !== undefined && cards[currentIndex]) || null;
+    (currentIndex !== undefined && cards[currentIndex]) || undefined;
 
   const close = () => {
     setCurrentIndex(undefined);

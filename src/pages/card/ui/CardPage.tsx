@@ -33,8 +33,8 @@ export const CardPage = () => {
             )}
           </div>
         </header>
-        <h1 className={styles.title}>{currentCard.title}</h1>
-        <div className={styles.text}>{currentCard.text}</div>
+        <h1 className={styles.title}>{currentCard?.title}</h1>
+        <div className={styles.text}>{currentCard?.text}</div>
       </section>
     </Atom>
   );

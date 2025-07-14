@@ -4,14 +4,14 @@ import styles from './styles.module.css';
 interface Props {
   readonly label: string;
   readonly name: string;
-  readonly defaultValue: string;
+  readonly defaultValue?: string;
   readonly type?: 'text' | 'password';
 }
 export const InputField: FC<Props> = ({
   label,
   name,
   type = 'text',
-  defaultValue,
+  defaultValue = '',
 }) => {
   return (
     <div className={styles.inputField}>
