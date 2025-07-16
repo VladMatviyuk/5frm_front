@@ -2,10 +2,10 @@ import { Sections } from '@/entities/sections';
 import { Header } from '@/shared/ui';
 
 export const MainPage = () => {
-  return (
-    <>
-      <Header title="⏱️" />
-      <Sections />
-    </>
-  );
+	return (
+		<>
+			<Header title="⏱️ mrf" />
+			<Sections />
+		</>
+	);
 };
