@@ -1,0 +1,42 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout кода
+        uses: actions/checkout@v4
+
+      - name: 🔧 Установка Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org/ 
+
+      - name: 📦 Установка зависимостей
+        run: npm install
+
+      - name: 🧰 Настройка Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🐳 Логин в GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: 🧱 Сборка и публикация Docker-образа
+        run: |
+          docker buildx build \
+            -f Dockerfile.prod \
+            --platform linux/amd64 \
+            -t ghcr.io/vladmatviyuk/5frm_front:latest \
+            --push \
+            .
+
+      - name: 📝 Уведомление о завершении
+        run: |
+          echo "✅ Образ успешно опубликован: ghcr.io/vladmatviyuk/5frm_front:latest"
