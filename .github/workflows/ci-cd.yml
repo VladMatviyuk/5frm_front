@@ -8,6 +8,8 @@ on:
 jobs:
   ci-cd:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
 
     steps:
       - name: 🧾 Checkout кода
