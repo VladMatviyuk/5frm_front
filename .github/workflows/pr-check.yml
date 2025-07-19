@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: 🧹 Проверка и автофикс кода через ESLint
-        run: npm run lint:fix
+        run: npm run lint
 
       - name: 🧪 Проверка сборки
         run: npm run build
