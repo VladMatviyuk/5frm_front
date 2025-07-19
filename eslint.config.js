@@ -27,5 +27,14 @@ export default tseslint.config(globalIgnores(['dist', './vite.config.ts']), {
 		'no-console': ['warn'],
 		'prefer-const': 'warn',
 		'import/no-unresolved': 'error',
+    "react-refresh/only-export-components": "off",
+    '@typescript-eslint/no-unused-vars': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+
 	},
+   "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 });

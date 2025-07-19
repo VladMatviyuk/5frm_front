@@ -4,7 +4,7 @@ import { Header } from '@/shared/ui';
 export const MainPage = () => {
 	return (
 		<>
-			<Header title="⏱️ mrf" />
+			<Header title="⏱️ MRF" />
 			<Sections />
 		</>
 	);

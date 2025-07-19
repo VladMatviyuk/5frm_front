@@ -11,7 +11,7 @@ export const AuthLayout: FC = () => {
     if (!token) {
       navigate('/login');
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <section className={[styles.auth, 'layout'].join(' ')}>
