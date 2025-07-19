@@ -35,7 +35,7 @@ jobs:
           docker buildx build \
             -f Dockerfile.prod \
             --platform linux/amd64 \
-            -t ghcr.io/vladmatviyuk/5frm_front:$(date +%Y%m%d%H%M%S) \
+            -t ghcr.io/vladmatviyuk/5frm_front:latest \
             --push \
             .
 
