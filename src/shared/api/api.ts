@@ -3,7 +3,7 @@
 import axios, { type AxiosInstance } from 'axios';
 
 const getBaseURL = () => {
-	return import.meta.env.VITE_API_URL || 'http://62.113.41.218:3000';
+	return import.meta.env.VITE_API_URL;
 };
 
 const createClient = (withAuth = false): AxiosInstance => {
