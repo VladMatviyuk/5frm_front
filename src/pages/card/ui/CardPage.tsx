@@ -7,8 +7,10 @@ export const CardPage = () => {
 	const { cards, currentCard, nextCard, prevCard, currentIndex, close } =
 		useCards();
 
-	const canGoPrev = currentIndex ?? 0 > 0;
-	const canGoNext = currentIndex ?? 0 < cards.length - 1;
+	// @ts-ignore
+	const canGoPrev = currentIndex > 0;
+	// @ts-ignore
+	const canGoNext = currentIndex < cards.length - 1;
 
 	return (
 		<section className={styles.card}>
