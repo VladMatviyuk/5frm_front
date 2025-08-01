@@ -1,5 +1,5 @@
 import { createSection, updateSection } from '@/entities/sections';
-import { Atom, Button, Form, InputField } from '@/shared/ui';
+import { Button, Form, InputField } from '@/shared/ui';
 import { useActionState, type FC } from 'react';
 import { type Section as ISection } from '@/entities/sections/model/types';
 import { Modal } from '@/shared/ui/Modal/Modal';

@@ -1,6 +1,5 @@
 import styles from './styles.module.css';
 
-import { Atom } from '@/shared/ui';
 import { useCards } from '@/entities/cards';
 import { FaAngleLeft, FaAngleRight, FaX } from 'react-icons/fa6';
 
@@ -8,8 +7,8 @@ export const CardPage = () => {
 	const { cards, currentCard, nextCard, prevCard, currentIndex, close } =
 		useCards();
 
-	const canGoPrev = currentIndex > 0;
-	const canGoNext = currentIndex < cards.length - 1;
+	const canGoPrev = currentIndex ?? 0 > 0;
+	const canGoNext = currentIndex ?? 0 < cards.length - 1;
 
 	return (
 		<section className={styles.card}>
