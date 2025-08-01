@@ -3,7 +3,7 @@
 import axios, { type AxiosInstance } from 'axios';
 
 const getBaseURL = () => {
-	return 'http://localhost:3000';
+	return '/api';
 };
 
 const createClient = (withAuth = false): AxiosInstance => {
