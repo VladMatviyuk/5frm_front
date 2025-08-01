@@ -22,3 +22,26 @@
   height: 200px;
   box-shadow: 4px 4px 2px 2px rgba(34, 60, 80, 0.35);
 }
+
+.cardAuth {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  height: 200px;
+  box-shadow: 4px 4px 2px 2px rgba(34, 60, 80, 0.35);
+  gap: 24px
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: space-around;
+}

@@ -9,35 +9,45 @@ import { useParams } from 'react-router';
 import { CardPage } from '@/pages/card';
 
 export const CardsPage = () => {
-	const { id } = useParams();
+	const { alias } = useParams();
 
 	const [section, setSection] = useState<Section | null>(null);
 	const [cards, setCards] = useState<CardList>([]);
 	const { currentIndex, loadCards } = useCards();
 
 	useEffect(() => {
-		if (!id) return;
+		if (!alias) return;
 
-		getSection(id).then((data) => setSection(data));
+		getSection(alias).then((data) => {
+			setSection(data);
+		});
+	}, [alias]);
+
+	useEffect(() => {
+		if (!section) return;
 		getSectionsData();
-	}, [id]);
+	}, [section]);
 
 	const getSectionsData = () => {
-		if (!id) return;
-		getSectionCards(id).then((data) => {
+		if (!section) return;
+		getSectionCards(section._id).then((data) => {
 			loadCards(data);
 			setCards(data);
 		});
 	};
 
-	if (!section || !id) return <>Loading...</>;
+	if (!section || !alias) return <>Loading...</>;
 
 	if (currentIndex !== undefined) return <CardPage />;
 
 	return (
 		<>
 			<Header title={section?.name} />
-			<CardsList cards={cards} sectionId={id} afterAdd={getSectionsData} />
+			<CardsList
+				cards={cards}
+				sectionId={section._id}
+				afterAdd={getSectionsData}
+			/>
 		</>
 	);
 };

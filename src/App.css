@@ -1,10 +1,17 @@
 .layout {
-  padding: 2rem;
+  padding: 2rem 6rem;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    padding: 2rem;
+  }
+
 }
 
 .container {

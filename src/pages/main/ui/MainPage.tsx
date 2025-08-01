@@ -4,7 +4,7 @@ import { Header } from '@/shared/ui';
 export const MainPage = () => {
 	return (
 		<>
-			<Header title="⏱️ MRF" />
+			<Header title="WebFlash" />
 			<Sections />
 		</>
 	);

@@ -19,5 +19,6 @@ export const UserProvider: FC<Props> = ({ children }) => {
 	const auth = checkAuth();
 
 	const value = { auth };
+
 	return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

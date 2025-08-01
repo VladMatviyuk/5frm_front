@@ -5,37 +5,51 @@ import { useCards } from '@/entities/cards';
 import { FaAngleLeft, FaAngleRight, FaX } from 'react-icons/fa6';
 
 export const CardPage = () => {
-  const { cards, currentCard, nextCard, prevCard, currentIndex, close } =
-    useCards();
+	const { cards, currentCard, nextCard, prevCard, currentIndex, close } =
+		useCards();
 
-  return (
-    <Atom>
-      <section className={styles.card}>
-        <div className={styles.actions}>
-          <div className={styles.close} onClick={() => close()}>
-            <FaX size={24} />
-          </div>
-        </div>
-        <header className={styles.header}>
-          <div className="pointer select-none" onClick={() => prevCard()}>
-            {currentIndex != 0 && (
-              <>
-                <FaAngleLeft size={30} />
-              </>
-            )}
-          </div>
+	const canGoPrev = currentIndex > 0;
+	const canGoNext = currentIndex < cards.length - 1;
 
-          <div className="pointer select-none" onClick={() => nextCard()}>
-            {currentIndex !== cards.length - 1 && (
-              <>
-                <FaAngleRight size={30} />
-              </>
-            )}
-          </div>
-        </header>
-        <h1 className={styles.title}>{currentCard?.title}</h1>
-        <div className={styles.text}>{currentCard?.text}</div>
-      </section>
-    </Atom>
-  );
+	return (
+		<section className={styles.card}>
+			{/* Header */}
+			<div className={styles.header}>
+				<h1 className={styles.title}>{currentCard?.title}</h1>
+				<div className={styles.close} onClick={() => close()}>
+					<FaX size={18} />
+				</div>
+			</div>
+
+			{/* Content with arrows and scrollable center */}
+			<div className={styles.content}>
+				{/* Left Arrow */}
+				<div
+					className={styles.arrow}
+					onClick={canGoPrev ? prevCard : undefined}
+					style={{
+						opacity: canGoPrev ? 1 : 0.3,
+					}}
+				>
+					<FaAngleLeft size={16} />
+				</div>
+
+				{/* Scrollable Text Content */}
+				<div className={styles.textContainer}>
+					<pre className={styles.text}>{currentCard?.text}</pre>
+				</div>
+
+				{/* Right Arrow */}
+				<div
+					className={styles.arrow}
+					onClick={canGoNext ? nextCard : undefined}
+					style={{
+						opacity: canGoNext ? 1 : 0.3,
+					}}
+				>
+					<FaAngleRight size={16} />
+				</div>
+			</div>
+		</section>
+	);
 };

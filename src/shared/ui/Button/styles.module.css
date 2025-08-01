@@ -7,3 +7,8 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+.black {
+  color: black;
+  border: 1px solid #d1d5db;
+}
